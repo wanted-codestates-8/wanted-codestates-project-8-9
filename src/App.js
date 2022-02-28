@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Link to="/review/upload" exact className="toReviewBtn">
+        <Link to="/review/upload" className="toReviewBtn">
           리뷰 쓰기
         </Link>
         <Routes>
