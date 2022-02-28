@@ -6,13 +6,15 @@ import Image from './Image'
 import Social from './Social'
 import Contents from './Contents'
 import Comment from './Comment'
+import Slick from './Slick'
 
 export default function Index() {
   return (
     <div className="detailContainer">
       <Header />
       <ProductInfo />
-      <Image />
+      {/* <Image /> */}
+      <Slick />
       <Social />
       <Contents />
       <Comment />

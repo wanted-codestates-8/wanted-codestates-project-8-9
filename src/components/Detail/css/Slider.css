@@ -1,0 +1,12 @@
+.container {
+    overflow-x: hidden;
+}
+
+.productImage {
+    width: 500px;
+}
+
+img {
+    width: 500px;
+    max-height: 40rem;
+}
