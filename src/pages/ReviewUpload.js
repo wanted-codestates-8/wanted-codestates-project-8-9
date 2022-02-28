@@ -1,12 +1,23 @@
 import { useCallback, useState } from 'react'
+import { connect } from 'react-redux'
+import { add } from '../modules/review'
 
-const ReviewUpload = () => {
+const ReviewUpload = ({ data, add }) => {
   const [imgState, setImgState] = useState([])
   const [inputValue, setInputValue] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log({ imgState, inputValue })
+    add({
+      image: imgState,
+      reviewTitle: inputValue,
+      rating: 0,
+      like: 0,
+      comments: [],
+      date: new Date(),
+      //   productId: 0,
+      //   userId: 0,
+    })
   }
 
   const handleDelteImg = (idx) => {
@@ -74,4 +85,15 @@ const ReviewUpload = () => {
     </form>
   )
 }
-export default ReviewUpload
+
+const mapStateToProps = (state) => ({
+  data: state.review.data,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  add: (newReview) => {
+    dispatch(add(newReview))
+  },
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewUpload)
