@@ -2,10 +2,18 @@ import { useCallback, useState } from 'react'
 
 const ReviewUpload = () => {
   const [imgState, setImgState] = useState([])
+  const [inputValue, setInputValue] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log({ imgState, inputValue })
+  }
+
   const handleDelteImg = (idx) => {
     const array = imgState.splice(idx, 1)
     setImgState((array) => [...array])
   }
+
   const handleImgChange = useCallback((e) => {
     const file = e.target.files[0]
 
@@ -17,14 +25,18 @@ const ReviewUpload = () => {
       }
     }
   }, [])
-  console.log(imgState)
+
   return (
-    <form className="review-form">
+    <form className="review-form" onSubmit={handleSubmit}>
       <h3 className="review-title">리뷰 내용</h3>
       <input
         type="text"
         className="review-input"
         placeholder="상품에 대한 리뷰를 써주세요:)"
+        onChange={(e) => {
+          setInputValue(e.target.value)
+        }}
+        value={inputValue}
       ></input>
       <h3 className="review-title">이미지</h3>
 
@@ -57,6 +69,8 @@ const ReviewUpload = () => {
       ></input>
 
       <h3 className="review-title">별점</h3>
+
+      <button className="review-submit">저장하기</button>
     </form>
   )
 }

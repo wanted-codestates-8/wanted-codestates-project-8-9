@@ -28,6 +28,9 @@
   background-color: black;
   color: white;
 }
+.review-file-label:hover {
+  cursor: pointer;
+}
 .img-wrapper {
   display: flex;
   justify-content: flex-start;
@@ -62,4 +65,19 @@
   position: absolute;
   top: 5px;
   right: 5px;
+}
+.review-submit {
+  margin-top: 20px;
+  width: 420px;
+  height: 60px;
+  font-size: 20px;
+  border-radius: 10px;
+  line-height: 40px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  border: none;
+}
+.review-submit:hover {
+  cursor: pointer;
 }
