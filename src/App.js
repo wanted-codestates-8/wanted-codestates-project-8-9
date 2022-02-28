@@ -2,7 +2,6 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import './App.css'
 import ReviewUpload from './pages/ReviewUpload'
 
-function App() {
   return (
     <div className="App">
       <BrowserRouter>
