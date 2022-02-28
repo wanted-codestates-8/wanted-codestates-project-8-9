@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import Ratings from '../components/Ratings'
 import { add } from '../reducers/ReviewReducer'
 
@@ -9,6 +10,7 @@ const ReviewUpload = () => {
   const [countRate, setCountRate] = useState(0)
   const dispatch = useDispatch()
   const data = useSelector((state) => state.review)
+  const navigator = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -25,6 +27,7 @@ const ReviewUpload = () => {
         //   userId: 0,
       })
     )
+    navigator('/')
   }
 
   useEffect(() => {
