@@ -1,24 +1,33 @@
-import { useCallback, useState } from 'react'
-import { connect } from 'react-redux'
-import { add } from '../modules/review'
+import { useCallback, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { add } from '../reducers/ReviewReducer'
 
-const ReviewUpload = ({ data, add }) => {
+const ReviewUpload = () => {
   const [imgState, setImgState] = useState([])
   const [inputValue, setInputValue] = useState('')
+  const dispatch = useDispatch()
+  const data = useSelector((state) => state.review)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    add({
-      image: imgState,
-      reviewTitle: inputValue,
-      rating: 0,
-      like: 0,
-      comments: [],
-      date: new Date(),
-      //   productId: 0,
-      //   userId: 0,
-    })
+
+    dispatch(
+      add({
+        image: imgState,
+        reviewTitle: inputValue,
+        rating: 0,
+        like: 0,
+        comments: [],
+        date: new Date(),
+        //   productId: 0,
+        //   userId: 0,
+      })
+    )
   }
+
+  useEffect(() => {
+    console.log(data)
+  }, [data])
 
   const handleDelteImg = (idx) => {
     const array = imgState.splice(idx, 1)
@@ -38,7 +47,7 @@ const ReviewUpload = ({ data, add }) => {
   }, [])
 
   return (
-    <form className="review-form" onSubmit={handleSubmit}>
+    <form action="/" className="review-form" onSubmit={handleSubmit}>
       <h3 className="review-title">리뷰 내용</h3>
       <input
         type="text"
@@ -86,14 +95,16 @@ const ReviewUpload = ({ data, add }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  data: state.review.data,
-})
+// const mapStateToProps = (state) => ({
+//   data: state.review.data,
+// })
 
-const mapDispatchToProps = (dispatch) => ({
-  add: (newReview) => {
-    dispatch(add(newReview))
-  },
-})
+// const mapDispatchToProps = (dispatch) => ({
+//   add: (newReview) => {
+//     dispatch(add(newReview))
+//   },
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewUpload)
+// export default connect(mapStateToProps, mapDispatchToProps)(ReviewUpload)
+
+export default ReviewUpload
