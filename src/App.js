@@ -1,13 +1,14 @@
-import './App.css';
+import './App.css'
+import Detail from './component/Detail'
 
 function App() {
   return (
     <div className="App">
       <div>
-        width
+        <Detail />
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
