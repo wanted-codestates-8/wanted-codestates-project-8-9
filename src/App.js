@@ -1,5 +1,5 @@
 import './App.css'
-import Detail from './component/Detail'
+import Detail from './components/Detail'
 
 function App() {
   return (
