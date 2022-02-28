@@ -5,6 +5,10 @@
   font-size: 35px;
 }
 
+.social-container svg {
+  cursor: pointer;
+}
+
 .social-container .like {
   display: flex;
   align-items: center;

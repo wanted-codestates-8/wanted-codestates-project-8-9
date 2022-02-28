@@ -19,8 +19,10 @@ export default function Slick() {
     slidesToShow: 1,
     SlidesToScroll: 1,
     appendDots: (dots) => (
-      <div style={{ padding: '50px' }}>
-        <ul style={{ margin: '0px' }}>{dots}</ul>
+      <div style={{ width: '100%', position: 'relative' }}>
+        <ul style={{ margin: '0px', position: 'absolute', top: '-200%' }}>
+          {dots}
+        </ul>
       </div>
     ),
   }
