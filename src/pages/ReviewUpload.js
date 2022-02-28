@@ -1,12 +1,16 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import Ratings from '../components/Ratings'
 import { add } from '../reducers/ReviewReducer'
 
 const ReviewUpload = () => {
   const [imgState, setImgState] = useState([])
   const [inputValue, setInputValue] = useState('')
+  const [countRate, setCountRate] = useState(0)
   const dispatch = useDispatch()
   const data = useSelector((state) => state.review)
+  const navigator = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -15,7 +19,7 @@ const ReviewUpload = () => {
       add({
         image: imgState,
         reviewTitle: inputValue,
-        rating: 0,
+        rating: countRate,
         like: 0,
         comments: [],
         date: new Date(),
@@ -23,6 +27,7 @@ const ReviewUpload = () => {
         //   userId: 0,
       })
     )
+    navigator('/')
   }
 
   useEffect(() => {
@@ -89,7 +94,7 @@ const ReviewUpload = () => {
       ></input>
 
       <h3 className="review-title">별점</h3>
-
+      <Ratings setCountRate={setCountRate}></Ratings>
       <button className="review-submit">저장하기</button>
     </form>
   )
