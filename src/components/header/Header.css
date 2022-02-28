@@ -1,0 +1,35 @@
+.gnb_wrap {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.gnb_menu {
+}
+.gnb_util {
+}
+.logo {
+}
+.logo .img {
+  width: 10.5rem;
+  height: 30px;
+}
+.btn_none {
+}
+.icon_btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.left_btn {
+  margin-right: 16px;
+}
+
+.blind_text {
+  overflow: hidden;
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+}

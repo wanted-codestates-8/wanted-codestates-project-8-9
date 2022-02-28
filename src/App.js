@@ -1,13 +1,13 @@
-import './App.css';
-
+import './App.css'
+import Header from './components/header/Header'
+import Filter from './components/filter/Filter'
 function App() {
   return (
     <div className="App">
-      <div>
-        width
-      </div>
+      <Header />
+      <Filter />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
