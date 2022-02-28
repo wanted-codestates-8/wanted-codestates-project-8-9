@@ -19,19 +19,21 @@ export default function Slick() {
     slidesToShow: 1,
     SlidesToScroll: 1,
     appendDots: (dots) => (
-      <div style={{ padding: '50px' }}>
+      <div style={{ padding: '50px 0' }}>
         <ul style={{ margin: '0px' }}>{dots}</ul>
       </div>
     ),
   }
 
   return (
-    <Slider {...Settings}>
-      {images.image.map((image) => (
-        <div className="productImage">
-          <img alt="image_test" src={`${image}`} />
-        </div>
-      ))}
-    </Slider>
+    <div>
+      <Slider {...Settings}>
+        {images.image.map((image) => (
+          <div className="productImage">
+            <img alt="image_test" src={`${image}`} />
+          </div>
+        ))}
+      </Slider>
+    </div>
   )
 }
