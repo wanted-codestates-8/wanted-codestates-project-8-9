@@ -1,45 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
+import initialData from './balaan.json'
 
 const initialState = {
-  data: [
-    {
-      productId: 1,
-      like: 3,
-      comments: [
-        {
-          userId: 'fac12351',
-          content:
-            '와 정말 멋진 상품이네요! 저도 당장 가서 사고싶습니다 잇아이템이라고 생각합니다!',
-          date: '30주',
-          recomment: [
-            {
-              userId: 'dac1774a',
-              content: '저도 그렇게 생각합니다',
-              date: '20주',
-            },
-            {
-              userId: 'dac1774a',
-              content: '저도 그렇게 생각합니다',
-              date: '20주',
-            },
-          ],
-        },
-        {
-          userId: 'fac12351',
-          content:
-            '와 정말 멋진 상품이네요! 저도 당장 가서 사고싶습니다 잇아이템이라고 생각합니다!',
-          date: '30주',
-          recomment: [
-            {
-              userId: 'dac1774a',
-              content: '저도 그렇게 생각합니다',
-              date: '20주',
-            },
-          ],
-        },
-      ],
-    },
-  ],
+  data: initialData,
 }
 
 const review = createSlice({
