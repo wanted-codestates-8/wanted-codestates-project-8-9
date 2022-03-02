@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './css/Social.css'
 import { MdThumbUpAlt, MdThumbUpOffAlt } from 'react-icons/md'
-import { AiOutlineShareAlt, AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import { AiOutlineShareAlt, AiOutlineHeart } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { like } from '../../reducers/ReviewReducer'
 
 function Social({ handleModalState }) {
