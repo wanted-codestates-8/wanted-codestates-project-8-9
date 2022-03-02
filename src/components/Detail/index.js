@@ -20,7 +20,7 @@ export default function Index({ productId }) {
   return (
     <div className="detailContainer">
       <Header />
-      <ProductInfo />
+      <ProductInfo productId={productId ? productId : productIdParams} />
       <Slick productId={productId ? productId : productIdParams} />
       <Social
         handleModalState={handleModalState}

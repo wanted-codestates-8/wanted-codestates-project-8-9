@@ -3,11 +3,9 @@ import './css/ProductInfo.css'
 import { BsThreeDots } from 'react-icons/bs'
 import { RiAlarmWarningLine } from 'react-icons/ri'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import moment from 'moment'
 
-export default function ProductInfo() {
-  let { productId } = useParams()
+export default function ProductInfo({ productId }) {
   productId = Number(productId)
   const reviews = useSelector((state) => state.review.data)
   const pickedReview = reviews.find(
@@ -49,15 +47,17 @@ export default function ProductInfo() {
   }, [handleCloseReport])
 
   return (
-    <div className="infoContainer">
-      <div className="id">{pickedReview.userId}</div>
-      <div className="etc">
-        <div className="date">
-          {moment(pickedReview.date).format('YYYY-MM-DD')}
-        </div>
-        <div className="report" onClick={onClickDots}>
-          <BsThreeDots size={24} />
-          {isShow ? <Report /> : null}
+    <div className="infoWapper">
+      <div className="infoContainer">
+        <div className="id">{pickedReview.userId}</div>
+        <div className="etc">
+          <div className="date">
+            {moment(pickedReview.date).format('YYYY-MM-DD')}
+          </div>
+          <div className="report" onClick={onClickDots}>
+            <BsThreeDots size={24} />
+            {isShow ? <Report /> : null}
+          </div>
         </div>
       </div>
     </div>
