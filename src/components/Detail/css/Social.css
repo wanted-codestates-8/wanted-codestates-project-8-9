@@ -3,6 +3,11 @@
   align-items: center;
   padding: 24px 25px;
   font-size: 35px;
+  width: 100%;
+}
+
+.social-container svg {
+  cursor: pointer;
 }
 
 .social-container .like {
@@ -24,4 +29,8 @@
 
 .social-container .heart {
   margin-right: 10px;
+}
+
+.social-container .heart > svg {
+  cursor: initial;
 }
