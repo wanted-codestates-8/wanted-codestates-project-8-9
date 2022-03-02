@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import './css/Slider.css'
 import 'slick-carousel/slick/slick.css'
