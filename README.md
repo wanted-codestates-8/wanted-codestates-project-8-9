@@ -130,7 +130,26 @@ PROJECT PERIOD: 2022.02.28 ~ 2022.03.02
 ## 🗂 프로젝트 구조
 
 ```
-component
+ ┣ component
+ ┃ ┣ Detail
+ ┃ ┃ ┣ css
+ ┃ ┃ ┃ ┣ Comment.css
+ ┃ ┃ ┃ ┣ Contents.css
+ ┃ ┃ ┃ ┣ Header.css
+ ┃ ┃ ┃ ┣ index.css
+ ┃ ┃ ┃ ┣ ProducInfo.css
+ ┃ ┃ ┃ ┣ ShareModal.css
+ ┃ ┃ ┃ ┣ Slider.css
+ ┃ ┃ ┃ ┗ Social.css
+ ┃ ┃ ┣ Comment.js
+ ┃ ┃ ┣ Contents.js
+ ┃ ┃ ┣ Form.js
+ ┃ ┃ ┣ Header.js
+ ┃ ┃ ┣ index.js
+ ┃ ┃ ┣ ProductInfo.js
+ ┃ ┃ ┣ ShareModal.js
+ ┃ ┃ ┣ Slick.js
+ ┃ ┃ ┗ Social.js
  ┣ filter
  ┃ ┣ Filter.css
  ┃ ┗ Filter.js
@@ -140,12 +159,17 @@ component
  ┣ ratings
  ┃ ┣ Ratings.css
  ┃ ┗ Ratings.js
+ ┣ reviewList
+ ┃ ┣ ReviewList.js
+ ┃ ┗ ReviewList.module.css
 pages
- ┣ ReviewUpload.js
+ ┣ ┣ Home.js
+ ┣ ┗ ReviewUpload.js
 reducers
- ┣ ReviewReducer.js
+ ┣ ┣ balaan.json
+ ┣ ┗ ReviewReducer.js
  style
- ┣ reviewUpload.css
+ ┣ ┗reviewUpload.css
  ┣ App.css
  ┣ App.js
  ┣ index.css
