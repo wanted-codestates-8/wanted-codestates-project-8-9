@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Ratings from '../components/Ratings'
 import { add } from '../reducers/ReviewReducer'
+import { BsChevronLeft } from 'react-icons/bs'
 
 const ReviewUpload = () => {
   const [imgState, setImgState] = useState([])
@@ -11,6 +12,10 @@ const ReviewUpload = () => {
   const dispatch = useDispatch()
   const data = useSelector((state) => state.review)
   const navigator = useNavigate()
+
+  const handleBackButton = () => {
+    navigator('/')
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -53,6 +58,10 @@ const ReviewUpload = () => {
 
   return (
     <form action="/" className="review-form" onSubmit={handleSubmit}>
+      <div className="back-button" onClick={handleBackButton}>
+        <BsChevronLeft size={25} strokeWidth={1}></BsChevronLeft>
+      </div>
+
       <h3 className="review-title">리뷰 내용</h3>
       <input
         type="text"

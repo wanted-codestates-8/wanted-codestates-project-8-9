@@ -94,3 +94,14 @@
 .review-submit:hover {
   cursor: pointer;
 }
+.back-button {
+  margin: 20px 0;
+  background-color: black;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
