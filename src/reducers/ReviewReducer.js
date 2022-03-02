@@ -17,17 +17,14 @@ const review = createSlice({
       const pickedReview = state.data.find(
         (review) => review.productId === action.payload
       )
-      console.log(pickedReview.like, 123123)
       pickedReview.like++
     },
 
     comment: (state, action) => {
-      console.log()
       const pickedReview = state.data.find(
         (review) => review.productId === action.payload.productId
       )
 
-      console.log(pickedReview, 124154123412)
       pickedReview.comments.push(action.payload.newComment)
     },
 
@@ -35,7 +32,6 @@ const review = createSlice({
       const pickedReview = state.data.find(
         (review) => review.productId === action.payload.productId
       )
-      console.log(action.payload, 888)
       pickedReview.comments[action.payload.idx].recomment.push(
         action.payload.recomment
       )
