@@ -1,16 +1,18 @@
 import React from 'react'
 import Slider from 'react-slick'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import './css/Slider.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 export default function Slick() {
-  const images = {
-    image: [
-      'https://i.balaan.io/review/f5c2ecb653c723f30ffe13b100da92ad.webp',
-      'https://i.balaan.io/review/0fd2b4020ba0234c43e87c7b1620e22b.webp',
-    ],
-  }
+  let { productId } = useParams()
+  productId = Number(productId)
+  const reviews = useSelector((state) => state.review.data)
+  const pickedReview = reviews.find(
+    (review) => review.productId === Number(productId)
+  )
 
   const Settings = {
     dots: true,
@@ -28,8 +30,8 @@ export default function Slick() {
   return (
     <div>
       <Slider {...Settings}>
-        {images.image.map((image) => (
-          <div className="productImage">
+        {pickedReview.image.map((image, idx) => (
+          <div className="productImage" key={idx}>
             <img alt="image_test" src={`${image}`} />
           </div>
         ))}

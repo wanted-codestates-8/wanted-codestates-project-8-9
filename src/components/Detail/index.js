@@ -9,25 +9,19 @@ import Slick from './Slick'
 import ShareModal from './ShareModal'
 
 export default function Index() {
-  // dealing with share modal
   const [modalOpenState, setModalOpenState] = useState(false)
   function handleModalState() {
     setModalOpenState((prev) => !prev)
   }
-
-  // const param = useLocation()
 
   return (
     <div className="detailContainer">
       <Header />
       <ProductInfo />
       <Slick />
-
       <Social handleModalState={handleModalState} />
       <Contents />
       <Comment />
-
-      {/* ShareModal */}
       {modalOpenState && <ShareModal handleModalState={handleModalState} />}
     </div>
   )

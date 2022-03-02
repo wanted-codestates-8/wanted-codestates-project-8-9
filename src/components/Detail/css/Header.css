@@ -8,6 +8,11 @@
     /* position: fixed; */
 }
 
+.link {
+    text-decoration: none;
+    color: black;
+}
+
 .goBack{
     margin-left: 1.6rem;
     cursor: pointer;
