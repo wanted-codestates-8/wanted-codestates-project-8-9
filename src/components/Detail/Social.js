@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './css/Social.css'
 import { MdThumbUpAlt, MdThumbUpOffAlt } from 'react-icons/md'
 import { AiOutlineShareAlt, AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useLocation, useParams } from 'react-router-dom'
+import { like } from '../../reducers/ReviewReducer'
 
 function Social({ handleModalState }) {
   const [likeClick, setLikeClick] = useState(false)
-  // const dispatch = useDispatch()
+  const { productId } = useParams()
+  const dispatch = useDispatch()
+  const reviews = useSelector((state) => state.review.data)
+  const pickedReview = reviews.find(
+    (review) => review.productId === Number(productId)
+  )
 
   function handleLike() {
     if (likeClick) {
@@ -16,14 +23,15 @@ function Social({ handleModalState }) {
 
     setLikeClick(true)
     // todo redux 비동기작업
+
+    dispatch(like(Number(productId)))
   }
 
   return (
     <div className="social-container">
       <div className="like" onClick={handleLike}>
         {likeClick ? <MdThumbUpAlt /> : <MdThumbUpOffAlt />}
-
-        <span>3</span>
+        <span>{pickedReview?.like}</span>
       </div>
 
       <div className="share" onClick={handleModalState}>
