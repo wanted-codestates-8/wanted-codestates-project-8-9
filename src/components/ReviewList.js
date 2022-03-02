@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 import Detail from './Detail'
 import styles from './ReviewList.module.css'
 
@@ -13,12 +14,12 @@ const ReviewList = ({ sort }) => {
   const sortFunc = useMemo(
     () => ({
       new: (a, b) => {
-        return Date.parse(b.date) - Date.parse(a.date)
+        return moment(b.date).diff(moment(a.date))
       },
       comments: (a, b) => {
         return (
           b.comments.length - a.comments.length ||
-          Date.parse(b.date) - Date.parse(a.date)
+          moment(b.date).diff(moment(a.date))
         )
       },
       random: (a, b) => Math.random() - 0.5,

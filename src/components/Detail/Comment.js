@@ -86,7 +86,7 @@ function Comment({ pickedReview }) {
     <div className="comment-container">
       <ul className="comment-list">
         {/* 댓글 */}
-        {pickedReview.comments.length &&
+        {pickedReview.comments.length > 0 &&
           pickedReview.comments.map(
             ({ userId, content, date, recomment }, index) => (
               <li key={index} className="comment-item">

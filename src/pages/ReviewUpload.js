@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
+import moment from 'moment'
 import { AiOutlineArrowLeft, AiOutlineClose } from 'react-icons/ai'
 import Ratings from '../components/Ratings'
 import { add } from '../reducers/ReviewReducer'
@@ -15,7 +16,6 @@ const ReviewUpload = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const date = new Date()
 
     dispatch(
       add({
@@ -24,7 +24,7 @@ const ReviewUpload = () => {
         rating: countRate,
         like: 0,
         comments: [],
-        date: `${date.getFullYear()}-${date.getMonth()}-${date.getDay()} 00:00:00`,
+        date: moment().format('YYYY-MM-DD kk:mm:ss'),
         productId: data.data.length,
         userId: 'tempUser',
       })
