@@ -115,8 +115,7 @@ function Comment() {
                       value={commentInput}
                       onChange={setCommentInput}
                       onClick={handleSubmitRecomment}
-                      index={index}
-                      userId={userId}
+                      params={{ index, userId }}
                     />
                   )}
 
@@ -161,8 +160,7 @@ function Comment() {
                               value={commentInput}
                               onChange={setCommentInput}
                               onClick={handleSubmitRecomment}
-                              index={index}
-                              userId={userId}
+                              params={{ index, userId }}
                             />
                           )}
                       </React.Fragment>

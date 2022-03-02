@@ -3,6 +3,14 @@
    License: none (public domain)
 */
 
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
 html,
 body,
 div,

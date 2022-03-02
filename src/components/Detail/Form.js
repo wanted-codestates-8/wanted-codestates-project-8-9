@@ -1,7 +1,12 @@
 import React from 'react'
 import './css/Comment.css'
 
-function Form({ value, onChange, onClick, index = -1, userId = '' }) {
+function Form({
+  value,
+  onChange,
+  onClick,
+  params = { index: -1, userId: '' },
+}) {
   return (
     <form className="comment-input" onSubmit={(e) => e.preventDefault()}>
       <input
@@ -13,7 +18,7 @@ function Form({ value, onChange, onClick, index = -1, userId = '' }) {
       <button
         type="button"
         className="btn submit"
-        onClick={() => onClick(index, userId)}
+        onClick={() => onClick(params.index, params.userId)}
       >
         게시
       </button>

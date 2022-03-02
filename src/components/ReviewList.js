@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styles from './ReviewList.module.css'
 
 const ReviewList = ({ sort }) => {
@@ -84,7 +85,9 @@ const ReviewList = ({ sort }) => {
             className={styles.contentsItem}
             key={v.productId}
           >
-            <img src={v.image[0]} alt={v.productId} />
+            <Link to={`/detail/${v.productId}`}>
+              <img src={v.image[0]} alt={v.productId} />
+            </Link>
           </div>
         ))
       )
