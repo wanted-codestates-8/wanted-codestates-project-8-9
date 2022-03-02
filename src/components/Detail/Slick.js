@@ -1,17 +1,10 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { useSelector } from 'react-redux'
 import './css/Slider.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-export default function Slick({ productId }) {
-  productId = Number(productId)
-  const reviews = useSelector((state) => state.review.data)
-  const pickedReview = reviews.find(
-    (review) => review.productId === Number(productId)
-  )
-
+export default function Slick({ pickedReview }) {
   const Settings = {
     dots: true,
     arrow: false,
