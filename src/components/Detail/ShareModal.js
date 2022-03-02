@@ -1,6 +1,5 @@
 import React from 'react'
 import './css/ShareModal.css'
-import { useLocation } from 'react-router-dom'
 
 function ShareModal({ handleModalState }) {
   // const location = useLocation()

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Ratings from '../components/Ratings'
@@ -14,6 +14,7 @@ const ReviewUpload = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const date = new Date()
 
     dispatch(
       add({
@@ -22,9 +23,9 @@ const ReviewUpload = () => {
         rating: countRate,
         like: 0,
         comments: [],
-        date: new Date(),
-        //   productId: 0,
-        //   userId: 0,
+        date: `${date.getFullYear()}-${date.getMonth()}-${date.getDay()} 00:00:00`,
+        productId: data.data.length,
+        userId: 'tempUser',
       })
     )
     navigator('/')
@@ -35,7 +36,7 @@ const ReviewUpload = () => {
   }, [data])
 
   const handleDelteImg = (idx) => {
-    const array = imgState.splice(idx, 1)
+    // const array = imgState.splice(idx, 1)
     setImgState((array) => [...array])
   }
 
@@ -69,7 +70,7 @@ const ReviewUpload = () => {
         <div className="img-wrapper">
           {imgState.map((img, idx) => (
             <div key={idx} className="img-item">
-              <img src={img} className="img-item-file"></img>
+              <img src={img} className="img-item-file" alt={idx}></img>
               <div
                 className="img-item-delete"
                 onClick={() => handleDelteImg(idx)}

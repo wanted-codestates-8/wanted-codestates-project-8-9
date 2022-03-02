@@ -1,15 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { FaStar } from 'react-icons/fa'
 import './Ratings.css'
 
 const Ratings = ({ setCountRate }) => {
   const checkedArr = [false, false, false, false, false]
-  const [clickState, setClickState] = useState([])
+  const [clickState, setClickState] = useState(checkedArr)
   const [state, setState] = useState('')
-
-  useEffect(() => {
-    setClickState(checkedArr)
-  }, [])
 
   const handleClick = (idx) => {
     const arr = checkedArr
