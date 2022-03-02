@@ -3,12 +3,10 @@ import './css/Social.css'
 import { MdThumbUpAlt, MdThumbUpOffAlt } from 'react-icons/md'
 import { AiOutlineShareAlt, AiOutlineHeart } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import { like } from '../../reducers/ReviewReducer'
 
-function Social({ handleModalState }) {
+function Social({ handleModalState, productId }) {
   const [likeClick, setLikeClick] = useState(false)
-  const { productId } = useParams()
   const dispatch = useDispatch()
   const reviews = useSelector((state) => state.review.data)
   const pickedReview = reviews.find(

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import './css/index.css'
 import Header from './Header'
 import ProductInfo from './ProductInfo'
@@ -8,8 +9,10 @@ import Comment from './Comment'
 import Slick from './Slick'
 import ShareModal from './ShareModal'
 
-export default function Index() {
+export default function Index({ productId }) {
   const [modalOpenState, setModalOpenState] = useState(false)
+  const productIdParams = useParams().productId
+
   function handleModalState() {
     setModalOpenState((prev) => !prev)
   }
@@ -18,10 +21,13 @@ export default function Index() {
     <div className="detailContainer">
       <Header />
       <ProductInfo />
-      <Slick />
-      <Social handleModalState={handleModalState} />
+      <Slick productId={productId ? productId : productIdParams} />
+      <Social
+        handleModalState={handleModalState}
+        productId={productId ? productId : productIdParams}
+      />
       <Contents />
-      <Comment />
+      <Comment productId={productId ? productId : productIdParams} />
       {modalOpenState && <ShareModal handleModalState={handleModalState} />}
     </div>
   )

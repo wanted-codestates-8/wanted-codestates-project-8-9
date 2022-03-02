@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Ratings from '../components/Ratings'
@@ -31,12 +31,7 @@ const ReviewUpload = () => {
     navigator('/')
   }
 
-  useEffect(() => {
-    console.log(data)
-  }, [data])
-
   const handleDelteImg = (idx) => {
-    // const array = imgState.splice(idx, 1)
     setImgState((array) => [...array])
   }
 
@@ -100,17 +95,5 @@ const ReviewUpload = () => {
     </form>
   )
 }
-
-// const mapStateToProps = (state) => ({
-//   data: state.review.data,
-// })
-
-// const mapDispatchToProps = (dispatch) => ({
-//   add: (newReview) => {
-//     dispatch(add(newReview))
-//   },
-// })
-
-// export default connect(mapStateToProps, mapDispatchToProps)(ReviewUpload)
 
 export default ReviewUpload

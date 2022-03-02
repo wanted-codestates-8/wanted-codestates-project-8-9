@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import { comment, recomment } from '../../reducers/ReviewReducer'
 import './css/Comment.css'
 import Form from './Form'
 
-function Comment() {
+function Comment({ productId }) {
   const [commentInput, setCommentInput] = useState('')
   const [recommentIndex, setRecommentIndex] = useState({
     parent: -1,
     self: -1,
   })
 
-  let { productId } = useParams()
   productId = Number(productId)
   const dispatch = useDispatch()
   const reviews = useSelector((state) => state.review.data)

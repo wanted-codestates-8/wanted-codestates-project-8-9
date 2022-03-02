@@ -1,13 +1,11 @@
 import React from 'react'
 import Slider from 'react-slick'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import './css/Slider.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-export default function Slick() {
-  let { productId } = useParams()
+export default function Slick({ productId }) {
   productId = Number(productId)
   const reviews = useSelector((state) => state.review.data)
   const pickedReview = reviews.find(
