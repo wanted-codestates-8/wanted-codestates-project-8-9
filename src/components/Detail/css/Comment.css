@@ -44,7 +44,7 @@
 .date-recomment {
   color: gray;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
 }
 
 .date-recomment > .recomment-btn {

@@ -1,9 +1,10 @@
 import React from 'react'
 import './css/Header.css'
 import { AiOutlineArrowLeft, AiOutlineClose } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Header() {
+  if (useLocation().pathname === '/') return <></>
   return (
     <div className="header">
       <div className="goBack">

@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Detail from './Detail'
 import styles from './ReviewList.module.css'
 
 const ReviewList = ({ sort }) => {
@@ -71,7 +72,6 @@ const ReviewList = ({ sort }) => {
     observer.current.disconnect()
     last.current = 15
     store.current.sort(sortFunc[sort])
-    console.log('re-sorted', store.current[0])
     setData(store.current.slice(0, last.current))
   }, [sort, sortFunc])
 
@@ -92,17 +92,7 @@ const ReviewList = ({ sort }) => {
         ))
       )
     } else {
-      setItems(
-        data.map((v, i) => (
-          <div
-            id={v.productId}
-            className={styles.contentsItem}
-            key={v.productId}
-          >
-            <img src={v.image[0]} alt={v.productId} />
-          </div>
-        ))
-      )
+      setItems(data.map((v, i) => <Detail productId={v.productId} />))
     }
   }, [data, viewType])
 
