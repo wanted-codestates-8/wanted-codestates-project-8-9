@@ -35,7 +35,7 @@ const ReviewUpload = () => {
   }, [data])
 
   const handleDelteImg = (idx) => {
-    const array = imgState.splice(idx, 1)
+    // const array = imgState.splice(idx, 1)
     setImgState((array) => [...array])
   }
 
@@ -69,7 +69,7 @@ const ReviewUpload = () => {
         <div className="img-wrapper">
           {imgState.map((img, idx) => (
             <div key={idx} className="img-item">
-              <img src={img} className="img-item-file"></img>
+              <img src={img} className="img-item-file" alt={idx} ></img>
               <div
                 className="img-item-delete"
                 onClick={() => handleDelteImg(idx)}

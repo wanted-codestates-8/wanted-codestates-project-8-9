@@ -2,14 +2,11 @@ import React, { useState } from 'react'
 import './css/index.css'
 import Header from './Header'
 import ProductInfo from './ProductInfo'
-import Image from './Image'
 import Social from './Social'
 import Contents from './Contents'
 import Comment from './Comment'
 import Slick from './Slick'
 import ShareModal from './ShareModal'
-import { useSelector, useDispatch } from 'react-redux'
-import { useLocation } from 'react-router-dom'
 
 export default function Index() {
   // dealing with share modal
