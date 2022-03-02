@@ -12,22 +12,20 @@ import ShareModal from './ShareModal'
 export default function Index({ productId }) {
   const [modalOpenState, setModalOpenState] = useState(false)
   const productIdParams = useParams().productId
+  const id = productId !== undefined ? productId : productIdParams
 
   function handleModalState() {
     setModalOpenState((prev) => !prev)
   }
 
   return (
-    <div className="detailContainer">
+    <div id={id} className="detailContainer">
       <Header />
-      <ProductInfo productId={productId ? productId : productIdParams} />
-      <Slick productId={productId ? productId : productIdParams} />
-      <Social
-        handleModalState={handleModalState}
-        productId={productId ? productId : productIdParams}
-      />
+      <ProductInfo productId={id} />
+      <Slick productId={id} />
+      <Social handleModalState={handleModalState} productId={id} />
       <Contents />
-      <Comment productId={productId ? productId : productIdParams} />
+      <Comment productId={id} />
       {modalOpenState && <ShareModal handleModalState={handleModalState} />}
     </div>
   )

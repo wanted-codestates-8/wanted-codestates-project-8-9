@@ -7,7 +7,7 @@ import styles from './ReviewList.module.css'
 const ReviewList = ({ sort }) => {
   const store = useRef([...useSelector((state) => state.review.data)])
   const last = useRef(15)
-  const [data, setData] = useState(store.current.slice(0, last.current))
+  const [data, setData] = useState([])
   const [items, setItems] = useState([])
   const [viewType, setViewType] = useState('grid')
   const sortFunc = useMemo(
@@ -31,7 +31,9 @@ const ReviewList = ({ sort }) => {
     setItems(
       store.current.slice(0, last.current).map((v, i) => (
         <div id={v.productId} className={styles.contentsItem} key={v.productId}>
-          <img src={v.image[0]} alt={v.productId} />
+          <Link to={`/detail/${v.productId}`}>
+            <img src={v.image[0]} alt={v.productId} />
+          </Link>
         </div>
       ))
     )
@@ -92,7 +94,9 @@ const ReviewList = ({ sort }) => {
         ))
       )
     } else {
-      setItems(data.map((v, i) => <Detail productId={v.productId} />))
+      setItems(
+        data.map((v, i) => <Detail key={v.productId} productId={v.productId} />)
+      )
     }
   }, [data, viewType])
 
