@@ -18,7 +18,6 @@ export default function Index() {
     setModalOpenState((prev) => !prev)
   }
 
-  //
   // const param = useLocation()
 
   return (
