@@ -14,12 +14,12 @@ function App() {
         <Link to="/review/upload" className="toReviewBtn">
           리뷰 쓰기
         </Link>
-        <Link to="/detail/id" className="toDetailBtn">
+        <Link to={`/detail/1`} className="toDetailBtn">
           상세보기
         </Link>
         <Routes>
           <Route path="/review/upload" exact element={<ReviewUpload />} />
-          <Route path="/detail/id" exact element={<Detail />} />
+          <Route path="/detail/:productId" exact element={<Detail />} />
         </Routes>
       </BrowserRouter>
     </div>
