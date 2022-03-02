@@ -1,6 +1,7 @@
 @import './style/reviewUpload.css';
 
 .App {
+  /* background-color: #f9f9f9; */
   border: 1px solid black;
   width: 500px;
   height: 100vh;

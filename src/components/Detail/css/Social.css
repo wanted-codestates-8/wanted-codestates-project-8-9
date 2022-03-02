@@ -1,0 +1,36 @@
+.social-container {
+  display: flex;
+  align-items: center;
+  padding: 24px 25px;
+  font-size: 35px;
+  width: 100%;
+}
+
+.social-container svg {
+  cursor: pointer;
+}
+
+.social-container .like {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 20px;
+  gap: 5px;
+}
+
+.social-container .like span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.social-container .share {
+  flex: 1;
+}
+
+.social-container .heart {
+  margin-right: 10px;
+}
+
+.social-container .heart > svg {
+  cursor: initial;
+}

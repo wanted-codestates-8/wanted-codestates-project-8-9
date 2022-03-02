@@ -1,0 +1,17 @@
+.productImageWrapper {
+    width: inherit;
+}
+
+img {
+    width: 500px;
+    max-height: 40rem;
+}
+
+.images{
+    display: flex;
+    overflow-x: scroll;
+}
+
+.images::-webkit-scrollbar{
+    display: none;
+}
