@@ -10,7 +10,11 @@ function Form({ value, onChange, onClick, index = -1, userId = '' }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-      <button className="btn submit" onClick={() => onClick(index, userId)}>
+      <button
+        type="button"
+        className="btn submit"
+        onClick={() => onClick(index, userId)}
+      >
         게시
       </button>
     </form>
