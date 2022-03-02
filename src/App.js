@@ -8,14 +8,14 @@ import Detail from './components/Detail'
 function App() {
   return (
     <div className="App">
-      <div>
-        <Detail />
-      </div>
       <Header />
       <Filter />
       <BrowserRouter>
         <Link to="/review/upload" className="toReviewBtn">
           리뷰 쓰기
+        </Link>
+        <Link to="/detail/id" className="toDetailBtn">
+          상세보기
         </Link>
         <Routes>
           <Route path="/review/upload" exact element={<ReviewUpload />} />
