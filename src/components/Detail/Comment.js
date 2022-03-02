@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { Provider, useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { comment, recomment } from '../../reducers/ReviewReducer'
 import './css/Comment.css'
+import Form from './Form'
 
 function Comment() {
   const [commentInput, setCommentInput] = useState('')
@@ -10,7 +11,7 @@ function Comment() {
     parent: -1,
     self: -1,
   })
-  const [recommentInput, setRecommentInput] = useState('')
+
   let { productId } = useParams()
   productId = Number(productId)
   const dispatch = useDispatch()
@@ -42,14 +43,14 @@ function Comment() {
   }
 
   function handleSubmitRecomment(idx, userId) {
-    if (recommentInput.trim() === '') {
+    if (commentInput.trim() === '') {
       alert('대댓글을 작성해주세요')
       return
     }
 
     const newRecomment = {
-      userId: userId,
-      content: recommentInput,
+      userId,
+      content: commentInput,
       date: '방금 전',
     }
 
@@ -58,7 +59,7 @@ function Comment() {
       self: -1,
       parent: -1,
     })
-    setRecommentInput('')
+    setCommentInput('')
   }
 
   function handleCancel() {
@@ -108,25 +109,16 @@ function Comment() {
                     </button>
                   )}
                 </div>
-                {recommentIndex.parent === index && recommentIndex.self === -1 && (
-                  <form
-                    className="comment-input"
-                    onSubmit={(e) => e.preventDefault()}
-                  >
-                    <input
-                      type="text"
-                      placeholder="tempUser (으)로 답글 달기"
-                      value={recommentInput}
-                      onChange={(e) => setRecommentInput(e.target.value)}
+                {recommentIndex.parent === index &&
+                  recommentIndex.self === -1 && (
+                    <Form
+                      value={commentInput}
+                      onChange={setCommentInput}
+                      onClick={handleSubmitRecomment}
+                      index={index}
+                      userId={userId}
                     />
-                    <button
-                      className="btn submit"
-                      onClick={() => handleSubmitRecomment(index, userId)}
-                    >
-                      게시
-                    </button>
-                  </form>
-                )}
+                  )}
 
                 {/* 대댓글 */}
                 {recomment && recomment.length > 0 && (
@@ -165,27 +157,13 @@ function Comment() {
                         </li>
                         {recommentIndex.parent === index &&
                           recommentIndex.self === idx && (
-                            <form
-                              className="comment-input"
-                              onSubmit={(e) => e.preventDefault()}
-                            >
-                              <input
-                                type="text"
-                                placeholder="tempUser (으)로 답글 달기"
-                                value={recommentInput}
-                                onChange={(e) =>
-                                  setRecommentInput(e.target.value)
-                                }
-                              />
-                              <button
-                                className="btn submit"
-                                onClick={() =>
-                                  handleSubmitRecomment(index, userId)
-                                }
-                              >
-                                게시
-                              </button>
-                            </form>
+                            <Form
+                              value={commentInput}
+                              onChange={setCommentInput}
+                              onClick={handleSubmitRecomment}
+                              index={index}
+                              userId={userId}
+                            />
                           )}
                       </React.Fragment>
                     ))}
@@ -197,17 +175,11 @@ function Comment() {
       </ul>
 
       {recommentIndex.parent === -1 && recommentIndex.self === -1 && (
-        <form className="comment-input" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            placeholder="댓글을 작성해 주세요"
-            value={commentInput}
-            onChange={(e) => setCommentInput(e.target.value)}
-          />
-          <button className="btn submit" onClick={handleSubmitBtn}>
-            게시
-          </button>
-        </form>
+        <Form
+          value={commentInput}
+          onChange={setCommentInput}
+          onClick={handleSubmitBtn}
+        />
       )}
     </div>
   )
