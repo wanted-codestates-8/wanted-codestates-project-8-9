@@ -1,70 +1,188 @@
-# Getting Started with Create React App
+## 📑 프로젝트 소개
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WANTED & CODESTATES 프리온보딩 코스
 
-## Available Scripts
+TEAM 8 팀기업과제 9번 입니다.
 
-In the project directory, you can run:
+<br>
 
-### `yarn start`
+### < 발란 >
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+PROJECT PERIOD: 2022.02.28 ~ 2022.03.02
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
 
-### `yarn test`
+[배포링크](https://wanted-8-9-i7.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `yarn build`
+## ✨ 주요 기능
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 고객이 리뷰를 등록 하고 리뷰를 확인할 수 있습니다.
+- 리뷰 등록 페이지 : 제목, 이미지 선택, 평점을 등록할 수 있습니다.
+- 상품 리뷰 리스트 페이지 : 고객들이 구매한 상품에 대한 전체 리뷰를 무한스크롤을 이용해 정렬되어(최신순, 리뷰카운트 순, 랜덤) 확인 할 수 있는 페이지입니다. 그리드뷰와 리스트뷰를 제공합니다.
+- 상품 리뷰 상세 페이지 : 특정 리뷰를 클릭하면 보이는 리뷰 상세 페이지입니다. 댓글달기 기능과 좋아요, 링크공유 기능을 제공합니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🧔 메인
 
-### `yarn eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 구현한 기능 목록 및 어려웠던 점
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. 리뷰 등록 페이지
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br>
 
-## Learn More
+[ 김희진 ]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 구현 내용 & 방법
+  - 리뷰입력폼을 제작했습니다.
+  - 이미지 업로드 및 미리보기를 제작했습니다.
+- 구현하면서 어려웠던 점
+  - 현재는 이미지를 fileRoader로 업로드 하지만, 더 적은 용량으로 업로드 할 수 있는 방식이 있다면 개선해 보고 싶습니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+[ 김혜영 ]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- 구현 내용 & 방법
+  - 별점 컴포넌트 작성
+- 구현하면서 어려웠던 점
+  - styled-component를 이용하지 않고 작성하는 게 오랜만이어서 다시금 약간 낯설었습니다.
+  - 별이 클릭되면 색을 바꾸는 것에 다른 상태를 써야한다고 생각했는데 미리 만들어놓은 배열의 상태에 따라 삼항연산자를 사용해 조건문으로 바꾸면 된다는 것을 깨달았습니다.
 
-### Analyzing the Bundle Size
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. 리뷰 리스트 페이지
 
-### Making a Progressive Web App
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[ 김진기 ]
 
-### Advanced Configuration
+- 구현 내용 & 방법
+  - 무한 스크롤
+  - 그리드 뷰, 리스트 뷰
+  - 정렬 기준에 따라 뷰 생성
+  - 파이썬을 이용한 초기 리뷰 데이터 생성
+- 구현하면서 어려웠던 점
+  - useEffect를 사용할 때 적용되는 exhaustive-deps 룰을 따라서 작성하는 것이 정말 힘들었습니다. 룰 대로 코드를 작성하면 자꾸 무한 루프가 발생해서 이를 해결하는 것이 어려웠습니다.
+  - 뷰 타입(그리드, 리스트)이 바뀔 때 . 옵저버를 먼저 해제하고 리스트가 재생성되면 다시 옵저버로 관찰하는 식으로 해결하였습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<br>
 
-### Deployment
+[ 박성현 ]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- 구현 내용 & 방법
+  - 헤더 컴포넌트
+  - 정렬 UI 컴포넌트
+    - 정렬Tab에 정렬시 필요한 값을 받을 수 있도록 onClick 이벤트를 만들어 주었습니다.
+- 구현하면서 어려운점
+  - 기존 tag 클릭시 id값을 얻지 못하였는데, tag배열을 만들어서 구현하여 id값을 쉽게 얻을 수 있었습니다.
 
-### `yarn build` fails to minify
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. 리뷰 상세 페이지
+
+<br>
+
+[ 최우철 ]
+
+- 구현 내용 & 방법
+  - 상세페이지의 like, 소셜공유, 상품내용 컨텐츠 컨테이너, 댓글 구조를 제작하였습니다.
+- 구현하면서 어려웠던 점
+  - date 컨테이너에서 span과 button이 서로 존재할 때 align-items:center 옵션이 부모에 적용되어 있었을 경우, span은 계속 height이 컨텐츠사이즈로 고정이었기 때문에 서로 높이가 안맞게 된다는 사실을 깨닫는 데까지 시간이 오래걸렸습니다.
+  - clipboard에 복사하는 기능을 해본적이 없었는데, 기존에 널리 사용되던 방법이 deprecated되어 react에 적용하는 방식을 따로 찾는데에 시간이 조금 걸렸습니다.
+
+<br>
+
+[ 변건오 ]
+
+- 구현 내용 & 방법
+    - 상세페이지 헤더 컴포넌트
+    - 상세페이지 이미지 슬라이더 부분
+- 구현하면서 어려웠던 점
+    - 슬라이더를 마우스 drag & drop 이벤트로 구현해보았더니 슬라이더가 마우스를 떼어도 마우스 위치에 따라 움직이는 현상이 발생했습니다. 이미지가 드래그된 상태인지 아닌지 상태를 주어 onMouseUp과 onMouseLeave 이벤트가 발생시 드래그 상태를 false로 주어 마우스가 떼어졌을 때, 슬라이더가 동작하지 않게 했습니다.
+    - 슬라이더가 마우스의 위치대로 움직이지만 특정 영역을 넘어서면 다음 슬라이더로 넘어가는 기능을 구현하기 어려웠습니다. 스크롤로 구현하면 자연스럽게 넘어가지만 drag & drop으로는 offsetX과 translateX를 이용하여 문제를 해결해야 될 것 같습니다.
+
+<br>
+
+4. 리덕스 세팅
+
+<br>
+
+[ 이승우 ]
+
+- 구현 내용 & 방법
+  - 리덕스를 설정하였습니다.
+  - 공통으로 사용되는 데이터와 그와 관련된 액션을 컴포넌트와 연동하였습니다.
+  - 상세보기 페이지에서 댓글 입력 폼을 경우의 수 (댓글, 대댓글) 에 맞게 보여주도록 하였습니다.
+- 구현하면서 어려웠던 점
+  - 처음에는 리덕스 자체만으로 기능을 구현하려고 했지만 객체의 구조가 복잡하고 깊어질수록 immutable하게 로직을 짜는 것이 어려웠습니다. 그래서 리덕스 툴킷을 도입하여 mutable하게 작성하여도 알아서 변경해주도록 하였습니다.
+
+<br>
+
+## 🗂 프로젝트 구조
+
+```
+component
+ ┣ filter
+ ┃ ┣ Filter.css
+ ┃ ┗ Filter.js
+ ┣ header
+ ┃ ┣ Header.css
+ ┃ ┗ Header.js
+ ┣ ratings
+ ┃ ┣ Ratings.css
+ ┃ ┗ Ratings.js
+pages
+ ┣ ReviewUpload.js
+reducers
+ ┣ ReviewReducer.js
+ style
+ ┣ reviewUpload.css
+ ┣ App.css
+ ┣ App.js
+ ┣ index.css
+ ┣ index.js
+ ┗ store.js
+```
+
+<br>
+
+## 🛠 사용 기술
+
+front-end
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+
+dev-ops
+
+![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
+
+community
+
+![Discord](https://img.shields.io/badge/%3CServer%3E-%237289DA.svg?style=for-the-badge&logo=discord&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![Apple](https://img.shields.io/badge/-APPLE-black?style=for-the-badge&logo=apple)
+![Ubuntu](https://img.shields.io/badge/-UBUNTU-gray?style=for-the-badge&logo=Ubuntu)
+
+## 팀원소개
+
+|     이름     | 포지션 |                                                                  깃헙                                                                   |
+| :----------: | :----: | :-------------------------------------------------------------------------------------------------------------------------------------: |
+| 김혜영(팀장) | Front  | [![github](https://img.shields.io/badge/김혜영-181717?style=flat-square&logo=GitHub&logoColor=white)](https://github.com/hit-that-drum) |
+| 김진기(팀원) | Front  |   [![github](https://img.shields.io/badge/김진기-181717?style=flat-square&logo=GitHub&logoColor=white)](https://github.com/hatoba29)    |
+| 최우철(팀원) | Front  | [![github](https://img.shields.io/badge/최우철-181717?style=flat-square&logo=GitHub&logoColor=white)](https://github.com/chltjdrhd777/) |
+| 변건오(팀원) | Front  |    [![github](https://img.shields.io/badge/변건오-181717?style=flat-square&logo=GitHub&logoColor=white)](https://github.com/guno517)    |
+| 박성현(팀원) | Front  |   [![github](https://img.shields.io/badge/박성현-181717?style=flat-square&logo=GitHub&logoColor=white)](https://github.com/psh9408p)    |
+| 이승우(팀원) | Front  |   [![github](https://img.shields.io/badge/이승우-181717?style=flat-square&logo=GitHub&logoColor=white)](https://github.com/starhn87)    |
+| 김희진(팀원) | Front  |  [![github](https://img.shields.io/badge/김희진-181717?style=flat-square&logo=GitHub&logoColor=white)](https://github.com/chloe41297)   |
