@@ -2,16 +2,12 @@ import React, { useState } from 'react'
 import './css/Social.css'
 import { MdThumbUpAlt, MdThumbUpOffAlt } from 'react-icons/md'
 import { AiOutlineShareAlt, AiOutlineHeart } from 'react-icons/ai'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { like } from '../../reducers/ReviewReducer'
 
-function Social({ handleModalState, productId }) {
+function Social({ handleModalState, pickedReview }) {
   const [likeClick, setLikeClick] = useState(false)
   const dispatch = useDispatch()
-  const reviews = useSelector((state) => state.review.data)
-  const pickedReview = reviews.find(
-    (review) => review.productId === Number(productId)
-  )
 
   function handleLike() {
     if (likeClick) {
@@ -20,9 +16,7 @@ function Social({ handleModalState, productId }) {
     }
 
     setLikeClick(true)
-    // todo redux 비동기작업
-
-    dispatch(like(Number(productId)))
+    dispatch(like(Number(pickedReview.productId)))
   }
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import './css/index.css'
 import Header from './Header'
 import ProductInfo from './ProductInfo'
@@ -14,6 +15,9 @@ export default function Index({ productId }) {
   const productIdParams = useParams().productId
   const id = productId !== undefined ? productId : productIdParams
 
+  const reviews = useSelector((state) => state.review.data)
+  const pickedReview = reviews.find((review) => review.productId === Number(id))
+
   function handleModalState() {
     setModalOpenState((prev) => !prev)
   }
@@ -21,11 +25,11 @@ export default function Index({ productId }) {
   return (
     <div id={id} className="detailContainer">
       <Header />
-      <ProductInfo productId={id} />
-      <Slick productId={id} />
-      <Social handleModalState={handleModalState} productId={id} />
-      <Contents />
-      <Comment productId={id} />
+      <ProductInfo pickedReview={pickedReview} />
+      <Slick pickedReview={pickedReview} />
+      <Social handleModalState={handleModalState} pickedReview={pickedReview} />
+      <Contents pickedReview={pickedReview} />
+      <Comment pickedReview={pickedReview} />
       {modalOpenState && <ShareModal handleModalState={handleModalState} />}
     </div>
   )

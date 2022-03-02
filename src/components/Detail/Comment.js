@@ -1,22 +1,17 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { comment, recomment } from '../../reducers/ReviewReducer'
 import './css/Comment.css'
 import Form from './Form'
 
-function Comment({ productId }) {
+function Comment({ pickedReview }) {
   const [commentInput, setCommentInput] = useState('')
   const [recommentIndex, setRecommentIndex] = useState({
     parent: -1,
     self: -1,
   })
 
-  productId = Number(productId)
   const dispatch = useDispatch()
-  const reviews = useSelector((state) => state.review.data)
-  const pickedReview = reviews.find(
-    (review) => review.productId === Number(productId)
-  )
 
   function handleSubmitBtn() {
     //todo redux dispatch로 코멘트 업데이트
@@ -32,7 +27,7 @@ function Comment({ productId }) {
       recomment: [],
     }
 
-    dispatch(comment({ productId, newComment }))
+    dispatch(comment({ productId: pickedReview.productId, newComment }))
     setCommentInput('')
     setRecommentIndex({
       self: -1,
@@ -52,7 +47,13 @@ function Comment({ productId }) {
       date: '방금 전',
     }
 
-    dispatch(recomment({ productId, idx, recomment: newRecomment }))
+    dispatch(
+      recomment({
+        productId: pickedReview.productId,
+        idx,
+        recomment: newRecomment,
+      })
+    )
     setRecommentIndex({
       self: -1,
       parent: -1,

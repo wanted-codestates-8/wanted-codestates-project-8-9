@@ -2,16 +2,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import './css/ProductInfo.css'
 import { BsThreeDots } from 'react-icons/bs'
 import { RiAlarmWarningLine } from 'react-icons/ri'
-import { useSelector } from 'react-redux'
 import moment from 'moment'
 
-export default function ProductInfo({ productId }) {
-  productId = Number(productId)
-  const reviews = useSelector((state) => state.review.data)
-  const pickedReview = reviews.find(
-    (review) => review.productId === Number(productId)
-  )
-
+export default function ProductInfo({ pickedReview }) {
   const reportRef = useRef()
   const [isShow, setIsShow] = useState(false)
   const onClickDots = () => {
