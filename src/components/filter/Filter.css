@@ -4,8 +4,14 @@
   height: 86px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 20px;
   background: #f9f9f9;
+}
+
+.filter_item_wrap {
+  display: flex;
+  align-items: center;
 }
 
 .filter_item {
@@ -33,4 +39,18 @@
 
 .refresh_icon {
   margin-left: auto;
+}
+
+.add_btn {
+  display: block;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 0;
 }
