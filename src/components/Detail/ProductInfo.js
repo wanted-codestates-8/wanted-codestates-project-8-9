@@ -6,10 +6,10 @@ import { RiAlarmWarningLine } from 'react-icons/ri'
 export default function ProductInfo() {
   const reportRef = useRef()
   const [isShow, setIsShow] = useState(false)
-  //id를 받아와 어떤 게시물을 신고할 것인지를 알아야할 것 같다.
   const onClickDots = () => {
     setIsShow(!isShow)
   }
+
   const onClickReport = () => {
     alert('로그인이 필요한 서비스입니다.')
     setIsShow(!isShow)
